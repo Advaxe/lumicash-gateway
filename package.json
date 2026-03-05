@@ -1,0 +1,28 @@
+{
+  "name": "openmmln-burundi",
+  "version": "1.0.0",
+  "main": "dist/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "node-fetch": "^2.7.0",
+    "pg": "^8.11.3",
+    "save-dev": "^0.0.1-security",
+    "tsx": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.0",
+    "@types/node-fetch": "^2.6.9",
+    "@types/pg": "^8.10.9",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  }
+}

@@ -1,0 +1,33 @@
+<div id="status-container">
+    <p>Attente de confirmation du paiement...</p>
+    <div class="spinner-border text-warning" id="loader"></div>
+</div>
+
+<script>
+    // On récupère le token depuis l'URL (ex: ?client_token=agas_...)
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('client_token');
+
+    async function checkPaymentStatus() {
+        if (!token) return;
+
+        try {
+            const response = await fetch(`/api/check-status/${token}`);
+            const data = await response.json();
+
+            if (data.status === 'COMPLETED') {
+                document.getElementById('status-container').innerHTML = `
+                    <h2 class="text-success">✅ Paiement Confirmé !</h2>
+                    <p>Vos Satoshis ont été envoyés.</p>
+                    <a href="/" class="btn btn-primary">Retour</a>
+                `;
+                clearInterval(pollingInterval); // Arrête la boucle
+            }
+        } catch (err) {
+            console.error("Erreur polling:", err);
+        }
+    }
+
+    // Lance la vérification toutes les 2 secondes (2000ms)
+    const pollingInterval = setInterval(checkPaymentStatus, 2000);
+</script>

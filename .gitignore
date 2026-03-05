@@ -1,0 +1,25 @@
+# Dépendances
+node_modules/
+jspm_packages/
+
+# Compilation (TypeScript vers JS)
+dist/
+out/
+*.tsbuildinfo
+
+# Variables d'environnement (SÉCURITÉ)
+.env
+.env.local
+.env.production
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# OS & Editeurs
+.DS_Store
+.vscode/
+.idea/

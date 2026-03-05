@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySatoshis | Acheter du Bitcoin au Burundi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --btc-orange: #F7931A;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .bitcoin-card {
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .logo-area {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .btc-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--btc-orange);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 15px;
+            box-shadow: 0 0 20px rgba(247, 147, 26, 0.4);
+        }
+
+        h1 { font-size: 24px; font-weight: 700; margin-bottom: 5px; }
+        p.subtitle { color: #888; font-size: 14px; margin-bottom: 30px; }
+
+        .form-label { color: #aaa; font-size: 13px; font-weight: 600; text-transform: uppercase; }
+
+        .form-control {
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 12px;
+            padding: 12px 15px;
+        }
+
+        .form-control:focus {
+            background-color: #2a2a2a;
+            border-color: var(--btc-orange);
+            color: white;
+            box-shadow: none;
+        }
+
+        .btn-btc {
+            background-color: var(--btc-orange);
+            border: none;
+            border-radius: 12px;
+            padding: 14px;
+            font-weight: 700;
+            color: white;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-btc:hover {
+            background-color: #e17e0a;
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bitcoin-card">
+        <div class="logo-area">
+            <div class="btc-icon">₿</div>
+            <h1>MySatoshis</h1>
+            <p class="subtitle">Achetez des Sats instantanément via Afripay</p>
+        </div>
+
+        <form action="/buy-sats" method="POST">
+            <div class="mb-4">
+                <label class="form-label">Montant à envoyer (BIF)</label>
+                <div class="input-group">
+                    <input type="number" name="amount" class="form-control" placeholder="Ex: 10000" required>
+                    <span class="input-group-text bg-dark text-white border-secondary">BIF</span>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">Votre Adresse Lightning</label>
+                <input type="text" name="lnAddress" class="form-control" placeholder="pseudo@blink.sv" required>
+                <div class="form-text text-muted" style="font-size: 11px;">Ex: +257... ou une LNURL</div>
+            </div>
+
+            <button type="submit" class="btn btn-btc w-100">
+                Générer le paiement
+            </button>
+        </form>
+
+        <div class="footer-text">
+            Propulsé par le protocole Lightning Network ⚡
+        </div>
+    </div>
+
+</body>
+</html>
